@@ -64,3 +64,10 @@ def test_customer_review_count():
     review = Review(customer, restaurant, 5)
     customer.reviews = [review]
     assert customer.review_count() == 1
+
+def test_customer_get_restaurants():
+    customer = Customer('Jane', 'Doe')
+    restaurant = Restaurant('Applebees')
+    review = Review(customer, restaurant, 5)
+    customer.reviews = [review]
+    assert customer.get_restaurants() == [restaurant]

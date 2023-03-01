@@ -27,3 +27,20 @@ def test_restaurant_get_reviews():
     review = Review(customer, restaurant, 5)
     restaurant.reviews = [review]
     assert restaurant.get_reviews() == [review]
+
+
+def test_restaurant_lowest_review():
+    restaurant = Restaurant("Monk's Cafe")
+    customer = Customer('Jane', 'Doe')
+    review1 = Review(customer, restaurant, 5)
+    review2 = Review(customer, restaurant, 1)
+    restaurant.reviews = [review1, review2]
+    assert restaurant.lowest_review() == review2
+
+def test_restaurant_average_rating():
+    restaurant = Restaurant("Monk's Cafe")
+    customer = Customer('Jane', 'Doe')
+    review1 = Review(customer, restaurant, 5)
+    review2 = Review(customer, restaurant, 1)
+    restaurant.reviews = [review1, review2]
+    assert restaurant.average_rating() == 3
